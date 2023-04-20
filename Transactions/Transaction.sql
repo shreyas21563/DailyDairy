@@ -12,8 +12,9 @@ SET @order_value = 100;
 INSERT INTO `payment`(`Customer_ID`, `Order_ID`, `Amount`, `Transaction_Number`) VALUES (@Customer_ID, @order_id, @order_value, @Transaction_number);
 UPDATE `customer` SET `Money In Wallet` = `Money In Wallet` - @order_value WHERE `Customer_ID` = @Customer_ID;
 UPDATE `admin` SET `Money` = `Money` + @order_value;
-COMMIT;
+rollback;
 
+-- Done
 START TRANSACTION;
 SET @Quantity = 200;
 SET @Price = 17;
@@ -25,8 +26,24 @@ UPDATE `farmer` SET `Money In Wallet` = `Money In Wallet` + @Price * @Quantity W
 UPDATE `farmer` SET `Average Price` = (SELECT SUM(Quantity*Price) FROM `gives_raw_milk_to` WHERE `gives_raw_milk_to`.`Supplier_ID`=@Supplier_ID)/(SELECT SUM(Quantity) FROM `gives_raw_milk_to` WHERE `gives_raw_milk_to`.`Supplier_ID`=@Supplier_ID) WHERE `farmer`.`Supplier_ID`=@Supplier_ID;
 COMMIT;
 
+-- Done
+START TRANSACTION;
+SET @Product_Id=1;
+SET @Quantity = 5;
+UPDATE `Product` SET `Quantity Available` = `Quantity Available` + @Quantity WHERE product_id=@Product_Id;
+UPDATE `Product` SET `Product Availibility` = 'In Stock' WHERE product_id=@Product_Id;
+COMMIT;
+
+-- Done
+START TRANSACTION;
+SET @product_id = 1;
+SET @Quantity = 5;
+UPDATE `Product` SET `Quantity Available` = `Quantity Available` - @Quantity WHERE product_id=@product_id;
+UPDATE `Product` SET `Product Availibility` = 'Out Of Stock' WHERE product_id = @product_id AND `Quantity Available`=0;
+COMMIT;
 
 -- Non conflicting transactions
+-- Done
 START TRANSACTION;
 SET @delivery_man_id = 7;
 SET @order_id = 1;
@@ -44,8 +61,9 @@ INSERT INTO `gives_product_feedback` VALUES (@Customer_ID, @Order_ID, @Product_I
 UPDATE `Product` SET Average_Rating = (SELECT AVG(gives_product_feedback.Rating) FROM gives_product_feedback WHERE gives_product_feedback.Product_ID = @Product_ID) WHERE `Product_ID` = @Product_ID;
 COMMIT;
 
+-- Done
 START TRANSACTION;
-SET @Increment = 1.1;
+SET @Increment = 1;
 UPDATE `unit_worker` SET `Salary` = @Increment*`Salary`;
 UPDATE `warehouse_worker` SET `Salary` = @Increment*`Salary`;
 CREATE OR REPLACE VIEW `unit workers` AS
@@ -70,3 +88,8 @@ SET @new_value = 36;
 UPDATE cart, adds SET cart.cart_value = cart_value + adds.Quantity*(@new_value - @old_value) WHERE cart.Cart_ID = adds.Cart_ID AND adds.Product_ID=@product_id;
 UPDATE product SET product_value = @new_value WHERE product_id=@product_id;
 COMMIT;
+
+
+-- INSERT INTO `order` VALUES (@Order_ID, 'Order Confirmed', @Delivery_Man_ID, @Warehouse_ID, @Customer_ID, @Cart_value);
+-- INSERT INTO `order_placing`(`product_id`, `order_id`, `cart_id`, `quantity`) SELECT `product_id`, @Order_ID, @Customer_ID, `quantity` FROM Adds WHERE `Customer_ID` = @Customer_ID;
+-- DELETE FROM adds WHERE customer_id=@Customer_ID;

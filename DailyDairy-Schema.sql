@@ -37,8 +37,8 @@ CREATE TABLE `Product` (
     `Product_Value` INT NOT NULL,
     `Admin_ID` INT UNSIGNED NOT NULL,
     `Average_Rating` DECIMAL(4, 2) NOT NULL DEFAULT 0,
-    `Product Availibility` VARCHAR(20) NOT NULL DEFAULT 'Out Of Stock' CHECK (`Product Availibility` = 'Out Of Stock' OR `Product Availibility` = 'In Stock'),
-    `Quantity Available` INT NOT NULL DEFAULT 0, 
+    `Product_Availibility` VARCHAR(20) NOT NULL DEFAULT 'Out Of Stock' CHECK (`Product_Availibility` = 'Out Of Stock' OR `Product_Availibility` = 'In Stock'),
+    `Quantity_Available` INT NOT NULL DEFAULT 0, 
     PRIMARY KEY (`Product_ID`),
     CONSTRAINT `Product_fk_Admin_ID` FOREIGN KEY (`Admin_ID`) REFERENCES `Admin` (`Admin_ID`) ON DELETE RESTRICT ON UPDATE CASCADE
 );

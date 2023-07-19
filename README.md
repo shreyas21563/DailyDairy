@@ -1,4 +1,4 @@
-## DailyDairy
+# DailyDairy
 
 “Daily Dairy” is a DBMS project developed using MySQL. It is designed as an online platform for people to purchase their daily dairy products. The Project focuses on ensuring efficient storage, retrieval, and management of data.
 

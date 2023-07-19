@@ -5,20 +5,12 @@
 Tech Stack: MySQL, HTML, CSS, Flask, Jinja Template, Python
 <br><br>
 # Screenshots of user-end website
-## Dashboard
 <div align="center">
   <img src="https://github.com/shreyas21563/DailyDairy/assets/108022785/c890cded-ab44-491a-bb5c-8700b96faab4" alt= “” width="900px" height="550px">
   <br><br><br>
-  </div>
-## Products
-<div align="center>
   <img src="https://github.com/shreyas21563/DailyDairy/assets/108022785/23612030-a27d-47ea-93f2-cdad759ba177" alt= “” width="900px" height="550px">
   <img src="https://github.com/shreyas21563/DailyDairy/assets/108022785/eb3f930b-b3ac-4c1d-af64-2deebb5f9325" alt= “” width="900px" height="550px">
   <br><br><br>
-</div>
-## Orders
-<div align="center">
   <img src="https://github.com/shreyas21563/DailyDairy/assets/108022785/816a3ee0-5d3e-47a7-adce-c35355b0a239" alt= “” width="900px" height="550px">
-  ## Order details
   <img src="https://github.com/shreyas21563/DailyDairy/assets/108022785/322b9ef9-a2b8-461c-aacd-e1f41cea7f90" alt= “” width="900px" height="550px">
 </div>

@@ -5,7 +5,7 @@
 Tech Stack: MySQL, HTML, CSS, Flask, Jinja Template, Python
 <br><br>
 
-<div align="center" markdown="1">
+<DIV align="center" markdown="1">
   **# Screenshots of user-end website**
   <img src="https://github.com/shreyas21563/DailyDairy/assets/108022785/c890cded-ab44-491a-bb5c-8700b96faab4" alt= “” width="900px" height="550px">
   <br><br><br>
@@ -14,4 +14,4 @@ Tech Stack: MySQL, HTML, CSS, Flask, Jinja Template, Python
   <br><br><br>
   <img src="https://github.com/shreyas21563/DailyDairy/assets/108022785/816a3ee0-5d3e-47a7-adce-c35355b0a239" alt= “” width="900px" height="550px">
   <img src="https://github.com/shreyas21563/DailyDairy/assets/108022785/322b9ef9-a2b8-461c-aacd-e1f41cea7f90" alt= “” width="900px" height="550px">
-</div>
+</DIV>
